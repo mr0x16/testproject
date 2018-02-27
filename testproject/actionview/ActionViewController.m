@@ -1,22 +1,38 @@
 //
-//  rightViewController.m
+//  ActionViewController.m
 //  testproject
 //
-//  Created by 马雪松 on 2018/2/26.
+//  Created by bocom on 2018/2/27.
 //  Copyright © 2018年 bestn1nja. All rights reserved.
 //
 
-#import "rightViewController.h"
+#import "ActionViewController.h"
 
-@interface rightViewController ()
+@interface ActionViewController (){
+    NSInteger typeNum;
+}
 
 @end
 
-@implementation rightViewController
+@implementation ActionViewController
+
+- (id)initWithType:(NSInteger )type {
+    self = [super init];
+    if (self) {
+        typeNum = type;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    UILabel *label = [[UILabel alloc] init];
+    label.text = [NSString stringWithFormat:@"%ld",typeNum];
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.centerY.equalTo(self.view.mas_centerY);
+    }];
     // Do any additional setup after loading the view.
 }
 

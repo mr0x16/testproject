@@ -1,5 +1,5 @@
 //
-//  leftViewController.h
+//  ActionViewController.h
 //  testproject
 //
 //  Created by bocom on 2018/2/27.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface leftViewController : UITableViewController
-
+#import "masonry.h"
+@interface ActionViewController : UIViewController
+- (id)initWithType:(NSInteger )type;
 @end

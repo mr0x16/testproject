@@ -18,17 +18,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     ViewController *rootVC = [[ViewController alloc] init];
+    leftViewController *leftVC = [[leftViewController alloc] init];
+    rightViewController *rightVC = [[rightViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
-//    mainViewController *mainvc = [[mainViewController alloc] initWithRootViewController:navigationController];
-    LGSideMenuController *mainvc = [[LGSideMenuController alloc] initWithRootViewController:navigationController leftViewController:[[leftViewController alloc] init] rightViewController:[[rightViewController alloc] init]];
-
-    mainvc.leftViewWidth = 250.0;
-//    mainvc.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
+    LGSideMenuController *mainvc = [[LGSideMenuController alloc] initWithRootViewController:navigationController leftViewController:leftVC rightViewController:rightVC];
+    
+    mainvc.rightViewEnabled = NO;
+    mainvc.leftViewWidth = SCREEN_WIDTH*2/5;
+    mainvc.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
 
     mainvc.rightViewWidth = 100.0;
-//    mainvc.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
+    mainvc.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
 
-//    mainvc.rootViewCoverColorForLeftView = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.05];
+    mainvc.rootViewCoverColorForLeftView = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
 //    mainvc.rootViewCoverColorForRightView = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:0.05];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];

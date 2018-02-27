@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "UIViewController+LGSideMenuController.h"
+#import "masonry.h"
 
 @interface ViewController : UIViewController
 

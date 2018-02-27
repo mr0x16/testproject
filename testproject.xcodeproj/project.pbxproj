@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FD2A93D20452B6900BD2302 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A93C20452B6900BD2302 /* ActionViewController.m */; };
+		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
 		D36B58192044100D00E6FAE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B58182044100D00E6FAE9 /* AppDelegate.m */; };
 		D36B581C2044100D00E6FAE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B581B2044100D00E6FAE9 /* ViewController.m */; };
 		D36B581F2044100D00E6FAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36B581D2044100D00E6FAE9 /* Main.storyboard */; };
 		D36B58212044100D00E6FAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36B58202044100D00E6FAE9 /* Assets.xcassets */; };
 		D36B58242044100D00E6FAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36B58222044100D00E6FAE9 /* LaunchScreen.storyboard */; };
 		D36B58272044100D00E6FAE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B58262044100D00E6FAE9 /* main.m */; };
-		D3EAE8EE204417620060015B /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAE8ED204417620060015B /* leftViewController.m */; };
 		D3EAE8F320441CE50060015B /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAE8F220441CE50060015B /* mainViewController.m */; };
 		D3EAE8F720441DB60060015B /* rightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAE8F620441DB60060015B /* rightViewController.m */; };
 		E9F9F03A86EC101768041E77 /* libPods-testproject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AA90A9194BBF729E35A247 /* libPods-testproject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FD2A93B20452B6900BD2302 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		0FD2A93C20452B6900BD2302 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		0FD2A93F204530EC00BD2302 /* leftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
+		0FD2A940204530EC00BD2302 /* leftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		219B8D4E10EB1CBDCC54AE6D /* Pods-testproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testproject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testproject/Pods-testproject.debug.xcconfig"; sourceTree = "<group>"; };
 		2F135CBBC7502875FF262A16 /* Pods-testproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-testproject/Pods-testproject.release.xcconfig"; sourceTree = "<group>"; };
 		D36B58142044100D00E6FAE9 /* testproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,8 +37,6 @@
 		D36B58232044100D00E6FAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36B58252044100D00E6FAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D36B58262044100D00E6FAE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D3EAE8EC204417620060015B /* leftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
-		D3EAE8ED204417620060015B /* leftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		D3EAE8F120441CE50060015B /* mainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
 		D3EAE8F220441CE50060015B /* mainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
 		D3EAE8F520441DB60060015B /* rightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rightViewController.h; sourceTree = "<group>"; };
@@ -53,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FD2A93E20452B7000BD2302 /* actionview */ = {
+			isa = PBXGroup;
+			children = (
+				0FD2A93B20452B6900BD2302 /* ActionViewController.h */,
+				0FD2A93C20452B6900BD2302 /* ActionViewController.m */,
+			);
+			path = actionview;
+			sourceTree = "<group>";
+		};
 		AC5AFD1273A693534F453209 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +103,7 @@
 		D36B58162044100D00E6FAE9 /* testproject */ = {
 			isa = PBXGroup;
 			children = (
+				0FD2A93E20452B7000BD2302 /* actionview */,
 				D3EAE8F420441D1C0060015B /* rightview */,
 				D3EAE8EF2044176C0060015B /* leftview */,
 				D36B58172044100D00E6FAE9 /* AppDelegate.h */,
@@ -111,8 +124,8 @@
 		D3EAE8EF2044176C0060015B /* leftview */ = {
 			isa = PBXGroup;
 			children = (
-				D3EAE8EC204417620060015B /* leftViewController.h */,
-				D3EAE8ED204417620060015B /* leftViewController.m */,
+				0FD2A93F204530EC00BD2302 /* leftViewController.h */,
+				0FD2A940204530EC00BD2302 /* leftViewController.m */,
 			);
 			path = leftview;
 			sourceTree = "<group>";
@@ -211,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C03C0845729180365C7CA4F9 /* [CP] Copy Pods Resources */ = {
@@ -251,9 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */,
 				D36B581C2044100D00E6FAE9 /* ViewController.m in Sources */,
 				D3EAE8F720441DB60060015B /* rightViewController.m in Sources */,
-				D3EAE8EE204417620060015B /* leftViewController.m in Sources */,
+				0FD2A93D20452B6900BD2302 /* ActionViewController.m in Sources */,
 				D3EAE8F320441CE50060015B /* mainViewController.m in Sources */,
 				D36B58272044100D00E6FAE9 /* main.m in Sources */,
 				D36B58192044100D00E6FAE9 /* AppDelegate.m in Sources */,

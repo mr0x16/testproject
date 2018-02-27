@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-
 @interface ViewController ()
 
 @end
@@ -17,8 +16,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.title = @"LGSideMenuController";
-        
+        self.title = @"Simple Project";
+//        [self.view setBackgroundColor:[UIColor blackColor]];
         self.view.backgroundColor = [UIColor whiteColor];
         
         // -----
@@ -30,12 +29,39 @@
                                                                                 target:self
                                                                                 action:@selector(showLeftView)];
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Right"
-                                                                                  style:UIBarButtonItemStylePlain
-                                                                                 target:self
-                                                                                 action:@selector(showRightView)];
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Right"
+//                                                                                  style:UIBarButtonItemStylePlain
+//                                                                                 target:self
+//                                                                                 action:@selector(showRightView)];
     }
     return self;
+}
+
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    UIView *redV = [[UIView alloc] init];
+    [redV setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:redV];
+    [redV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.width.equalTo(@100);
+        make.height.equalTo(@100);
+    }];
+    
+    UIView *greenV = [[UIView alloc] init];
+    [greenV setBackgroundColor:[UIColor greenColor]];
+    [self.view addSubview:greenV];
+    [greenV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.width.equalTo(@100);
+        make.height.equalTo(@100);
+    }];
+    CGFloat PI_FACTOR = 3.1415926/180;
+    greenV.transform = CGAffineTransformMake(cos(PI_FACTOR*5)+1, sin(PI_FACTOR*5)+1, -sin(PI_FACTOR*5)+1, cos(PI_FACTOR*5)+1, 0, 0);
+//    greenV.transform = CGAffineTransformMake(cos(PI_FACTOR*45), 0, 0, cos(PI_FACTOR*45), 0, 0);
+    
 }
 
 - (void)showLeftView {
