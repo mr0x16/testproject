@@ -12,8 +12,8 @@
 #import "LGSideMenuController.h"
 #import "leftViewController.h"
 #import "rightViewController.h"
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#import "marco.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

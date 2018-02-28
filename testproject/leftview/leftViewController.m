@@ -7,6 +7,7 @@
 //
 
 #import "leftViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface leftViewController ()
 
@@ -19,7 +20,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.actionsArray = @[@"test1",
+        self.actionsArray = @[@"request",
                               @"test2",
                               @"test3"];
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -66,6 +67,14 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"index path is %ld", indexPath.row);
+    mainViewController *mainVC = (mainViewController *)self.sideMenuController;
+    UINavigationController *navigationVC =(UINavigationController *)mainVC.rootViewController;
+    NSString *classString = [self.actionsArray[indexPath.row] stringByAppendingString:CLASS_SUFFIX];
+    id actionVC = [[NSClassFromString(classString) alloc] init];
+    [navigationVC pushViewController:actionVC animated:YES];
+    [mainVC hideLeftViewAnimated:YES completionHandler:nil];
+    
     
 }
 

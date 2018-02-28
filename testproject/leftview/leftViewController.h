@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "mainViewController.h"
+#define CLASS_SUFFIX @"ViewController"
 @interface leftViewController : UITableViewController
 
 @end

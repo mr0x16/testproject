@@ -14,16 +14,16 @@
 
 @implementation mainViewController
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.leftViewController = [[leftViewController alloc] init];
-        self.rightViewController = [[rightViewController alloc] init];
-        self.leftViewWidth = 250;
-        self.rightViewWidth = 100;
-    }
-    return self;
-}
+//- (id)init {
+//    self = [super init];
+//    if (self) {
+//        self.leftViewController = [[leftViewController alloc] init];
+//        self.rightViewController = [[rightViewController alloc] init];
+//        self.leftViewWidth = 250;
+//        self.rightViewWidth = 100;
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
