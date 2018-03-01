@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
 		0FD2A9442046719000BD2302 /* requestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A9432046719000BD2302 /* requestViewController.m */; };
+		0FD2A94B2047F29500BD2302 /* qrcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A94A2047F29500BD2302 /* qrcodeViewController.m */; };
 		D36B58192044100D00E6FAE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B58182044100D00E6FAE9 /* AppDelegate.m */; };
 		D36B581C2044100D00E6FAE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B581B2044100D00E6FAE9 /* ViewController.m */; };
 		D36B581F2044100D00E6FAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36B581D2044100D00E6FAE9 /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 		0FD2A9422046719000BD2302 /* requestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requestViewController.h; sourceTree = "<group>"; };
 		0FD2A9432046719000BD2302 /* requestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = requestViewController.m; sourceTree = "<group>"; };
 		0FD2A94620467B8400BD2302 /* marco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = marco.h; sourceTree = "<group>"; };
+		0FD2A9492047F29500BD2302 /* qrcodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qrcodeViewController.h; sourceTree = "<group>"; };
+		0FD2A94A2047F29500BD2302 /* qrcodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = qrcodeViewController.m; sourceTree = "<group>"; };
 		219B8D4E10EB1CBDCC54AE6D /* Pods-testproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testproject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testproject/Pods-testproject.debug.xcconfig"; sourceTree = "<group>"; };
 		2F135CBBC7502875FF262A16 /* Pods-testproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-testproject/Pods-testproject.release.xcconfig"; sourceTree = "<group>"; };
 		D36B58142044100D00E6FAE9 /* testproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +63,7 @@
 		0FD2A93E20452B7000BD2302 /* actionview */ = {
 			isa = PBXGroup;
 			children = (
+				0FD2A9482047F27600BD2302 /* QRCode */,
 				0FD2A9472047EB5000BD2302 /* httprequest */,
 			);
 			path = actionview;
@@ -72,6 +76,15 @@
 				0FD2A9432046719000BD2302 /* requestViewController.m */,
 			);
 			path = httprequest;
+			sourceTree = "<group>";
+		};
+		0FD2A9482047F27600BD2302 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				0FD2A9492047F29500BD2302 /* qrcodeViewController.h */,
+				0FD2A94A2047F29500BD2302 /* qrcodeViewController.m */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		AC5AFD1273A693534F453209 /* Frameworks */ = {
@@ -280,6 +293,7 @@
 				D3EAE8F320441CE50060015B /* mainViewController.m in Sources */,
 				0FD2A9442046719000BD2302 /* requestViewController.m in Sources */,
 				D36B58272044100D00E6FAE9 /* main.m in Sources */,
+				0FD2A94B2047F29500BD2302 /* qrcodeViewController.m in Sources */,
 				D36B58192044100D00E6FAE9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
