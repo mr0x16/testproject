@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface qrcodeViewController : UIViewController
+#import <AVFoundation/AVFoundation.h>
+#import "marco.h"
+@interface qrcodeViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @end

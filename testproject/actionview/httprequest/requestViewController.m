@@ -68,6 +68,14 @@
         make.centerX.equalTo(self.view.mas_centerX);
     }];
 }
+- (void)viewDidLayoutSubviews {
+    if ([IOS_VERSION_ARRAY[0] intValue] >= 11) {
+        [_textview mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-self.view.safeAreaInsets.bottom - 5);
+        }];
+    }
+}
+
 - (void)getRequest{
     NSString *urlStr = @"https://liveapi.v114.com/getlikes";
     NSString *param = @"topic_id=596d5ff28a3b9518cc717c53";

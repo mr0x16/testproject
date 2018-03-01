@@ -35,7 +35,7 @@ fprintf(stderr, "-------\n");
 #define debugMethod()
 #endif
 
-
+#define IOS_VERSION_ARRAY [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."]
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define NAVI_HEIGHT 64
