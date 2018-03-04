@@ -73,6 +73,9 @@
     NSString *classString = [self.actionsArray[indexPath.row] stringByAppendingString:CLASS_SUFFIX];
     id actionVC = [[NSClassFromString(classString) alloc] init];
     [navigationVC pushViewController:actionVC animated:YES];
+//    if (indexPath.row == 1) {
+//        navigationVC.navigationBar.hidden = YES;
+//    }
     [mainVC hideLeftViewAnimated:YES completionHandler:nil];
     
     

@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "marco.h"
+#import "cameraPreviewView.h"
+#import "masonry.h"
+#import "UIViewController+LGSideMenuController.h"
+#import "mainViewController.h"
 @interface qrcodeViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @end

@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         self.title = @"request";
-        [self.view setBackgroundColor:[UIColor whiteColor]];
+        
     }
     
     return self;
@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self loadSubview];
     // Do any additional setup after loading the view.
 }
