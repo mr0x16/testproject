@@ -7,7 +7,9 @@
 //
 @import AVFoundation;
 #import <UIKit/UIKit.h>
-
+#import "masonry.h"
+#import "grayLayerView.h"
+#define FINDER_SCALE 0.72
 @interface cameraPreviewView : UIView
 
 @property(nonatomic, readonly) AVCaptureVideoPreviewLayer *videoPreviewLayer;

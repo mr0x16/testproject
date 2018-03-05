@@ -64,13 +64,13 @@
     
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    mainViewController *mainVC = (mainViewController *)self.sideMenuController;
-    UINavigationController *navigationVC =(UINavigationController *)mainVC.rootViewController;
-    if (navigationVC.navigationBar.isHidden) {
-        navigationVC.navigationBar.hidden = NO;
-    }
-}
+//- (void) viewWillAppear:(BOOL)animated {
+//    mainViewController *mainVC = (mainViewController *)self.sideMenuController;
+//    UINavigationController *navigationVC =(UINavigationController *)mainVC.rootViewController;
+//    if (navigationVC.navigationBar.isHidden) {
+//        navigationVC.navigationBar.hidden = NO;
+//    }
+//}
 
 - (void)showLeftView {
     [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];

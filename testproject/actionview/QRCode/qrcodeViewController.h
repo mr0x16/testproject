@@ -13,6 +13,7 @@
 #import "masonry.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "mainViewController.h"
-@interface qrcodeViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
+#import "grayLayerView.h"
+@interface qrcodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate>
 
 @end

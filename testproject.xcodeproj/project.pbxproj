@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86ACFB204CF9AD003556F1 /* grayLayerView.m */; };
 		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
 		0FD2A9442046719000BD2302 /* requestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A9432046719000BD2302 /* requestViewController.m */; };
 		0FD2A94B2047F29500BD2302 /* qrcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A94A2047F29500BD2302 /* qrcodeViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F86ACFA204CF9AD003556F1 /* grayLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grayLayerView.h; sourceTree = "<group>"; };
+		0F86ACFB204CF9AD003556F1 /* grayLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grayLayerView.m; sourceTree = "<group>"; };
 		0FD2A93F204530EC00BD2302 /* leftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
 		0FD2A940204530EC00BD2302 /* leftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		0FD2A9422046719000BD2302 /* requestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requestViewController.h; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				0FD2A94A2047F29500BD2302 /* qrcodeViewController.m */,
 				D30794C720499A2A0017969E /* cameraPreviewView.h */,
 				D30794C820499A2A0017969E /* cameraPreviewView.m */,
+				0F86ACFA204CF9AD003556F1 /* grayLayerView.h */,
+				0F86ACFB204CF9AD003556F1 /* grayLayerView.m */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -158,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				D30794CC204C42CD0017969E /* resource */,
-				D30794CA204C03820017969E /* LaunchScreen.storyboard */,
 				0FD2A93E20452B7000BD2302 /* actionview */,
 				D3EAE8F420441D1C0060015B /* rightview */,
 				D3EAE8EF2044176C0060015B /* leftview */,
@@ -167,6 +171,7 @@
 				D36B581A2044100D00E6FAE9 /* ViewController.h */,
 				D36B581B2044100D00E6FAE9 /* ViewController.m */,
 				D36B581D2044100D00E6FAE9 /* Main.storyboard */,
+				D30794CA204C03820017969E /* LaunchScreen.storyboard */,
 				D36B58202044100D00E6FAE9 /* Assets.xcassets */,
 				D36B58252044100D00E6FAE9 /* Info.plist */,
 				D36B58262044100D00E6FAE9 /* main.m */,
@@ -331,6 +336,7 @@
 				0FD2A9442046719000BD2302 /* requestViewController.m in Sources */,
 				D36B58272044100D00E6FAE9 /* main.m in Sources */,
 				D30794C920499A2A0017969E /* cameraPreviewView.m in Sources */,
+				0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */,
 				0FD2A94B2047F29500BD2302 /* qrcodeViewController.m in Sources */,
 				D36B58192044100D00E6FAE9 /* AppDelegate.m in Sources */,
 			);
