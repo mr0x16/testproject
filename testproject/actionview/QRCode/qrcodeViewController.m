@@ -12,11 +12,12 @@
     CGFloat campreviewWidth, campreviewHeight;
 }
 @property (nonatomic , strong) AVCaptureSession *videoSession;
+@property (nonatomic , strong) AVCaptureDevice *videoDevice;
 @property (nonatomic) dispatch_queue_t sessionQueue;
 @property (nonatomic, strong) cameraPreviewView *campreview;
-@property (nonatomic, strong) UIButton *btnClose, *btnqrChange, *btnAlbum;
+@property (nonatomic, strong) UIButton *btnClose, *btnqrChange, *btnAlbum, *btnLight;
 @property (nonatomic) mainViewController *mainVC;
-@property (nonatomic) BOOL isRuning, canDetect;
+@property (nonatomic) BOOL isRuning, canDetect, isLight;
 @property (nonatomic) AVCaptureMetadataOutput *photoOutput;
 
 @end
@@ -31,6 +32,7 @@
         self.videoSession = [[AVCaptureSession alloc] init];
         self.sessionQueue = dispatch_queue_create( "session queue", DISPATCH_QUEUE_SERIAL );
         self.isRuning = NO;
+        self.isLight = NO;
         self.canDetect = YES;
     }
     
@@ -73,6 +75,13 @@
     [navigationVC.interactivePopGestureRecognizer setEnabled:NO];
     navigationVC.navigationBar.hidden = YES;
     [_mainVC setLeftViewEnabled:NO];
+    
+    NSError *error = nil;
+    [_videoDevice lockForConfiguration:&error];
+    [_videoDevice setFocusMode:AVCaptureFocusModeAutoFocus];
+    //操作完成后，记得进行unlock。
+    [_videoDevice unlockForConfiguration];
+    
     [super viewWillAppear:animated];
 }
 
@@ -86,14 +95,14 @@
 //    self.videoSession.sessionPreset = AVCaptureSessionPresetPhoto;
     self.videoSession.sessionPreset = AVCaptureSessionPresetHigh;
     //初始化设备
-    AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInDualCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
-    if (!videoDevice) {
-        videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInWideAngleCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+    _videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInDualCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+    if (!_videoDevice) {
+        _videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInWideAngleCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
     }
     
     //初始化设备输入
     NSError *error = nil;
-    AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
+    AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:_videoDevice error:&error];
     if ([self.videoSession canAddInput:videoDeviceInput]) {
         [self.videoSession addInput:videoDeviceInput];
     } else {
@@ -158,8 +167,36 @@
     // 4.设置代理
     photoalbumVC.delegate = self;
     
-    // 5.modal出这个控制器
+    //push出这个控制器
     [self presentViewController:photoalbumVC animated:YES completion:nil];
+}
+
+- (void) switchLight {
+    NSString *lightBtnImageName = @"";
+    if (self.isLight) {
+        lightBtnImageName = @"light_off";
+    } else {
+        lightBtnImageName = @"light_on";
+    }
+    self.isLight = !self.isLight;
+    [self operateTorchWithSwitch:self.isLight];
+    [self.btnLight setBackgroundImage:[UIImage imageNamed:lightBtnImageName] forState:UIControlStateNormal];
+}
+- (void) operateTorchWithSwitch:(BOOL) state{
+    if ([_videoDevice hasTorch]) {
+        NSError *error = nil;
+        BOOL locked = [_videoDevice lockForConfiguration:&error];
+        if (locked) {
+            if (state) {
+                _videoDevice.torchMode = AVCaptureTorchModeOn;
+            } else {
+                _videoDevice.torchMode = AVCaptureTorchModeOff;
+            }
+            [_videoDevice unlockForConfiguration];
+        }
+    } else {
+        NSLog(@"该设备目前无法使用闪光灯。");
+    }
 }
 
 #pragma mark - load&update Subview
@@ -206,7 +243,22 @@
         make.height.equalTo(@(SCREEN_WIDTH/12));
     }];
     
-    
+    self.btnLight = [UIButton buttonWithType:UIButtonTypeCustom];
+    NSString *lightBtnImageName = @"";
+    if (self.isLight) {
+        lightBtnImageName = @"light_on";
+    } else {
+        lightBtnImageName = @"light_off";
+    }
+    [self.btnLight setBackgroundImage:[UIImage imageNamed:lightBtnImageName] forState:UIControlStateNormal];
+    [self.btnLight addTarget:self action:@selector(switchLight) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.btnLight];
+    [self.btnLight mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(@(3*SCREEN_HEIGHT/4));
+        make.width.equalTo(@(SCREEN_WIDTH/10));
+        make.height.equalTo(@(SCREEN_WIDTH/10));
+    }];
 }
 
 - (void) updateSubviewConstraints {
@@ -220,6 +272,7 @@
 }
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
+
 - (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
     AVMetadataObjectType typeobject = [[metadataObjects firstObject] type];
     AVMetadataMachineReadableCodeObject *resobject = [metadataObjects lastObject];
@@ -249,13 +302,12 @@
     
     CIImage *ciImage = [CIImage imageWithData:imageData];
     
-    // 2.从选中的图片中读取二维码数据
-    // 2.1创建一个探测器
+    //创建一个探测器
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
     
-    // 2.2利用探测器探测数据
+    //用探测器探测数据
     NSArray *feature = [detector featuresInImage:ciImage];
-    NSString *resultStr = @"";
+    __block NSString *resultStr = @"";
     if ([feature count] > 0) {
         CIQRCodeFeature *result = feature[0];
         // 2.3取出探测到的数据
@@ -266,14 +318,15 @@
     } else {
         resultStr = @"识别失败!";
     }
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"扫描结果" message:resultStr preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        NSLog(@"OK Action");
-        [alertcontroller dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"识别结果" message:resultStr preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //        NSLog(@"OK Action");
+            [alertcontroller dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertcontroller addAction:okAction];
+        [self presentViewController:alertcontroller animated:YES completion:nil];
     }];
-    [alertcontroller addAction:okAction];
-    [self presentViewController:alertcontroller animated:YES completion:nil];
 }
 #pragma mark - MemoryWarning
 - (void)didReceiveMemoryWarning {

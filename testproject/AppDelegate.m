@@ -24,11 +24,11 @@
     LGSideMenuController *mainvc = [[LGSideMenuController alloc] initWithRootViewController:navigationController leftViewController:leftVC rightViewController:rightVC];
     
     mainvc.rightViewEnabled = NO;
-    mainvc.leftViewWidth = SCREEN_WIDTH*2/5;
+    mainvc.leftViewWidth = SCREEN_WIDTH*3/5;
     mainvc.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
 
-    mainvc.rightViewWidth = 100.0;
-    mainvc.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
+//    mainvc.rightViewWidth = 100.0;
+//    mainvc.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
 
     mainvc.rootViewCoverColorForLeftView = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
 //    mainvc.rootViewCoverColorForRightView = [UIColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:0.05];

@@ -14,6 +14,6 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "mainViewController.h"
 #import "grayLayerView.h"
-@interface qrcodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate>
+@interface qrcodeViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

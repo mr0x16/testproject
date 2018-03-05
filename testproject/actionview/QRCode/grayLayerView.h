@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#define MASK_COLOR [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7]
+#define MASK_COLOR [UIColor colorWithRed:1 green:1 blue:1 alpha:0.6]
 
 @interface grayLayerView : UIView
 @property(nonatomic) CGFloat finderscale;
