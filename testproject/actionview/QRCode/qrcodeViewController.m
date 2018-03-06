@@ -17,8 +17,9 @@
 @property (nonatomic, strong) cameraPreviewView *campreview;
 @property (nonatomic, strong) UIButton *btnClose, *btnqrChange, *btnAlbum, *btnLight;
 @property (nonatomic) mainViewController *mainVC;
-@property (nonatomic) BOOL isRuning, canDetect, isLight;
+@property (nonatomic) BOOL isRuning, canDetect, isLight, isScan;
 @property (nonatomic) AVCaptureMetadataOutput *photoOutput;
+@property (nonatomic) qrCodeView *qrcodeview;
 
 @end
 
@@ -34,6 +35,7 @@
         self.isRuning = NO;
         self.isLight = NO;
         self.canDetect = YES;
+        self.isScan = YES;
     }
     
     return self;
@@ -199,6 +201,23 @@
     }
 }
 
+- (void) changeMode{
+    self.isScan = !self.isScan;
+    self.canDetect = self.isScan;
+    if (!self.isScan) {
+        self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
+        [_qrcodeview setBackgroundColor:[UIColor clearColor]];
+        [self.view addSubview:self.qrcodeview];
+        [self.qrcodeview mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.campreview.mas_centerX);
+            make.centerY.equalTo(self.campreview.mas_centerY);
+            make.width.equalTo(self.campreview.mas_width).multipliedBy(FINDER_SCALE);
+            make.height.equalTo(self.campreview.mas_width).multipliedBy(FINDER_SCALE);
+        }];
+    }
+    [self setNeedsFocusUpdate];
+}
+
 #pragma mark - load&update Subview
 - (void) loadSubview {
     self.campreview = [[cameraPreviewView alloc] init];
@@ -235,12 +254,13 @@
     
     self.btnqrChange = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btnqrChange setBackgroundImage:[UIImage imageNamed:@"scan"] forState:UIControlStateNormal];
+    [self.btnqrChange addTarget:self action:@selector(changeMode) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btnqrChange];
     [self.btnqrChange mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.bottom.equalTo(self.view.mas_bottom).offset(-20);
-        make.width.equalTo(@(SCREEN_WIDTH/12));
-        make.height.equalTo(@(SCREEN_WIDTH/12));
+        make.width.equalTo(@(SCREEN_WIDTH/10));
+        make.height.equalTo(@(SCREEN_WIDTH/10));
     }];
     
     self.btnLight = [UIButton buttonWithType:UIButtonTypeCustom];
