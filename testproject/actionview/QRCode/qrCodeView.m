@@ -26,9 +26,42 @@
     NSData *qrdata = [qrStr dataUsingEncoding:NSUTF8StringEncoding];
     [qrfilter setValue:qrdata forKeyPath:@"inputMessage"];
     CIImage *ciImg = [qrfilter outputImage];
-    UIImageView *qrimgview = [[UIImageView alloc] initWithImage:[UIImage imageWithCIImage:ciImg]];
-    [qrimgview setFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+    UIImage *qrimg = [self resizeCIimage:ciImg WithSize:self.bounds.size];
+    UIImageView *qrimgview = [[UIImageView alloc] initWithImage:qrimg];
+    [qrimgview setFrame:self.bounds];//CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     [self addSubview:qrimgview];
+}
+
+- (UIImage *)resizeCIimage:(CIImage *)ciimg WithSize:(CGSize )size {
+    UIImage *reImg = [[UIImage alloc] init];
+    if (ciimg) {
+        CGRect extent = CGRectIntegral(ciimg.extent);
+        CGFloat scale_width = size.width/CGRectGetWidth(extent);
+        CGFloat scale_height = size.height/CGRectGetHeight(extent);
+        size_t width = CGRectGetWidth(extent) * scale_width;
+        size_t height = CGRectGetHeight(extent) * scale_height;
+        
+        int bitmapSize;
+        int bytesPerRow;
+        bytesPerRow   = (width * 4);
+        bitmapSize     = (bytesPerRow * height);
+        
+        unsigned char *bitmap = malloc( bitmapSize );
+        
+        CGColorSpaceRef colorspaceref = CGColorSpaceCreateDeviceRGB();
+        CGContextRef contentref = CGBitmapContextCreate(bitmap, width, height, 8, bytesPerRow, colorspaceref, kCGImageAlphaNoneSkipLast);
+        CIContext *context = [CIContext contextWithOptions:nil];
+        CGImageRef imgref = [context createCGImage:ciimg fromRect:extent];
+        CGContextSetInterpolationQuality(contentref, kCGInterpolationNone);
+        CGContextScaleCTM(contentref, scale_width, scale_height);
+        CGContextDrawImage(contentref, extent, imgref);
+        
+        CGImageRef imagerefResize = CGBitmapContextCreateImage(contentref);
+        CGContextRelease(contentref);
+        CGImageRelease(imgref);
+        reImg = [UIImage imageWithCGImage:imagerefResize];
+    }
+    return reImg;
 }
 
 // Only override drawRect: if you perform custom drawing.

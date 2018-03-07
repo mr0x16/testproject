@@ -9,7 +9,7 @@
 #import "qrcodeViewController.h"
 
 @interface qrcodeViewController (){
-    CGFloat campreviewWidth, campreviewHeight;
+    CGFloat campreviewWidth, campreviewHeight, pastbrightlevel;
 }
 @property (nonatomic , strong) AVCaptureSession *videoSession;
 @property (nonatomic , strong) AVCaptureDevice *videoDevice;
@@ -88,6 +88,7 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
+    [self setScreenBrightnessWith:pastbrightlevel];
     [super viewDidDisappear:animated];
 }
 
@@ -144,7 +145,7 @@
     
     return CGRectMake(x, y, w, h);
 }
-#pragma mark - button action
+#pragma mark - button & other action
 - (void) hideView {
 //    NSLog(@"dismiss!");
     UINavigationController *navigationVC =(UINavigationController *)_mainVC.rootViewController;
@@ -205,17 +206,39 @@
     self.isScan = !self.isScan;
     self.canDetect = self.isScan;
     if (!self.isScan) {
-        self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
-        [_qrcodeview setBackgroundColor:[UIColor clearColor]];
-        [self.view addSubview:self.qrcodeview];
-        [self.qrcodeview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.campreview.mas_centerX);
-            make.centerY.equalTo(self.campreview.mas_centerY);
-            make.width.equalTo(self.campreview.mas_width).multipliedBy(FINDER_SCALE);
-            make.height.equalTo(self.campreview.mas_width).multipliedBy(FINDER_SCALE);
-        }];
+        pastbrightlevel = [self getScreenBrightness];
+        [self setScreenBrightnessWith:0.8];
+        if (self.qrcodeview) {
+            [self.qrcodeview setHidden:NO];
+        } else {
+            self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
+            [_qrcodeview setBackgroundColor:[UIColor clearColor]];
+            [self.view addSubview:self.qrcodeview];
+            [self.qrcodeview mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(self.campreview.mas_centerX);
+                make.centerY.equalTo(self.campreview.mas_centerY);
+                make.width.equalTo(self.campreview.mas_width).multipliedBy(FINDER_SCALE);
+                make.height.equalTo(self.campreview.mas_width).multipliedBy(FINDER_SCALE);
+            }];
+        }
+    
+    } else {
+        [self setScreenBrightnessWith:pastbrightlevel];
+        [self.qrcodeview setHidden:YES];
     }
     [self setNeedsFocusUpdate];
+}
+
+- (void) setScreenBrightnessWith:(CGFloat) level{
+    CGFloat orilevel = [UIScreen mainScreen].brightness;
+    if (orilevel == level) {
+        return;
+    }
+    [[UIScreen mainScreen] setBrightness:level];
+}
+
+- (CGFloat) getScreenBrightness{
+    return [[UIScreen mainScreen] brightness];
 }
 
 #pragma mark - load&update Subview
