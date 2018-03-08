@@ -69,6 +69,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    //进来时就要记录一下亮度值，否则disappear的时候pastbrightlevel没有值得话，会被set为0
+    pastbrightlevel = [self getScreenBrightness];
     campreviewHeight = CGRectGetHeight(self.campreview.frame);
     self.mainVC = (mainViewController *)self.sideMenuController;
     UINavigationController *navigationVC =(UINavigationController *)self.mainVC.rootViewController;
@@ -79,6 +81,7 @@
     [_mainVC setLeftViewEnabled:NO];
     
     NSError *error = nil;
+    //先lock一下
     [_videoDevice lockForConfiguration:&error];
     [_videoDevice setFocusMode:AVCaptureFocusModeAutoFocus];
     //操作完成后，记得进行unlock。
@@ -235,6 +238,29 @@
         return;
     }
     [[UIScreen mainScreen] setBrightness:level];
+//    __block CGFloat orilevel = [UIScreen mainScreen].brightness;
+//    orilevel = 0.01*(int)(orilevel/0.01);
+//    level = 0.01*(int)(level/0.01);
+//    //level值不合法或者和当前亮度一致是直接返回
+//    if (orilevel == level || level < 0 || level > 1) {
+//        return;
+//    }
+//    int signsymbol = floor(fabs(level-orilevel)/(level-orilevel));
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        if (level == orilevel) {
+//            [timer invalidate];
+//        }
+//        orilevel += signsymbol*0.1;
+//        [[UIScreen mainScreen] setBrightness:orilevel];
+//    }];
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.0001 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        if (fabs(level - orilevel) < 0.02) {
+//            [timer invalidate];
+//        }
+//        orilevel += signsymbol*0.01;
+//        [[UIScreen mainScreen] setBrightness:orilevel];
+//    }];
+//    [timer fire];
 }
 
 - (CGFloat) getScreenBrightness{
