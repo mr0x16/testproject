@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    NSNumber *showshotalert;
+}
 
 @end
 
@@ -16,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takeScreenShot:) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
     ViewController *rootVC = [[ViewController alloc] init];
     leftViewController *leftVC = [[leftViewController alloc] init];
     rightViewController *rightVC = [[rightViewController alloc] init];
@@ -41,6 +43,19 @@
     return YES;
 }
 
+- (void)takeScreenShot:(NSNotification *)info {
+    if (![showshotalert boolValue]) {
+        return;
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"截屏了~" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确定");
+    }];
+    [alert addAction:action];
+    [_window.rootViewController presentViewController:alert animated:YES completion:^{
+        NSLog(@"正在截屏");
+    }];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

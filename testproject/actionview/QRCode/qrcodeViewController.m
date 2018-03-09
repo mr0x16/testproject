@@ -17,6 +17,12 @@
 @property (nonatomic, strong) cameraPreviewView *campreview;
 @property (nonatomic, strong) UIButton *btnClose, *btnqrChange, *btnAlbum, *btnLight;
 @property (nonatomic) mainViewController *mainVC;
+/*
+ isRuning: 摄像头是否是run的状态;
+ canDetect: 二维码还在探测;
+ isLight: 🔦是否打开;
+ isScan: 目前模式是否是扫描模式;
+*/
 @property (nonatomic) BOOL isRuning, canDetect, isLight, isScan;
 @property (nonatomic) AVCaptureMetadataOutput *photoOutput;
 @property (nonatomic) qrCodeView *qrcodeview;
@@ -205,15 +211,29 @@
     }
 }
 
+- (void)takeScreenShot:(NSNotification *)info {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"截屏了~" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确定");
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:^{
+        NSLog(@"正在截屏");
+    }];
+}
+
 - (void) changeMode{
     self.isScan = !self.isScan;
     self.canDetect = self.isScan;
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     if (!self.isScan) {
+        [delegate setValue:[NSNumber numberWithBool:YES] forKey:@"showshotalert"];
         pastbrightlevel = [self getScreenBrightness];
         [self setScreenBrightnessWith:0.8];
         if (self.qrcodeview) {
             [self.qrcodeview setHidden:NO];
         } else {
+//            [[NSNotificationCenter defaultCenter] ];
             self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
             [_qrcodeview setBackgroundColor:[UIColor clearColor]];
             [self.view addSubview:self.qrcodeview];
@@ -226,6 +246,7 @@
         }
     
     } else {
+        [delegate setValue:[NSNumber numberWithBool:NO] forKey:@"showshotalert"];
         [self setScreenBrightnessWith:pastbrightlevel];
         [self.qrcodeview setHidden:YES];
     }
