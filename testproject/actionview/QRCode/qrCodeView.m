@@ -16,6 +16,8 @@
     qrStr = @"";
     if (self) {
         qrStr = qrinfo;
+        UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(event:)];
+         [self addGestureRecognizer:tapGesture];
     }
     return self;
 }
@@ -62,6 +64,11 @@
         reImg = [UIImage imageWithCGImage:imagerefResize];
     }
     return reImg;
+}
+
+- (void)event:(UITapGestureRecognizer *)gesture {
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:qrStr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 // Only override drawRect: if you perform custom drawing.
