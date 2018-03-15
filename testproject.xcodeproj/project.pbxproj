@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4FD390205A4E5D0025C464 /* speechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FD38F205A4E5D0025C464 /* speechViewController.m */; };
 		0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86ACFB204CF9AD003556F1 /* grayLayerView.m */; };
 		0F86AD02204E21B9003556F1 /* qrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86AD01204E21B9003556F1 /* qrCodeView.m */; };
 		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
@@ -31,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F4FD38D205A3A230025C464 /* testproject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testproject.entitlements; sourceTree = "<group>"; };
+		0F4FD38E205A4E5D0025C464 /* speechViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = speechViewController.h; sourceTree = "<group>"; };
+		0F4FD38F205A4E5D0025C464 /* speechViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = speechViewController.m; sourceTree = "<group>"; };
 		0F86ACFA204CF9AD003556F1 /* grayLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grayLayerView.h; sourceTree = "<group>"; };
 		0F86ACFB204CF9AD003556F1 /* grayLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grayLayerView.m; sourceTree = "<group>"; };
 		0F86AD00204E21B9003556F1 /* qrCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qrCodeView.h; sourceTree = "<group>"; };
@@ -81,9 +85,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4FD391205A4E630025C464 /* speech */ = {
+			isa = PBXGroup;
+			children = (
+				0F4FD38E205A4E5D0025C464 /* speechViewController.h */,
+				0F4FD38F205A4E5D0025C464 /* speechViewController.m */,
+			);
+			path = speech;
+			sourceTree = "<group>";
+		};
 		0FD2A93E20452B7000BD2302 /* actionview */ = {
 			isa = PBXGroup;
 			children = (
+				0F4FD391205A4E630025C464 /* speech */,
 				0FD2A9482047F27600BD2302 /* QRCode */,
 				0FD2A9472047EB5000BD2302 /* httprequest */,
 			);
@@ -173,6 +187,7 @@
 		D36B58162044100D00E6FAE9 /* testproject */ = {
 			isa = PBXGroup;
 			children = (
+				0F4FD38D205A3A230025C464 /* testproject.entitlements */,
 				D30794CC204C42CD0017969E /* resource */,
 				0FD2A93E20452B7000BD2302 /* actionview */,
 				D3EAE8F420441D1C0060015B /* rightview */,
@@ -246,6 +261,14 @@
 					D36B58132044100D00E6FAE9 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -342,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4FD390205A4E5D0025C464 /* speechViewController.m in Sources */,
 				0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */,
 				D36B581C2044100D00E6FAE9 /* ViewController.m in Sources */,
 				0F86AD02204E21B9003556F1 /* qrCodeView.m in Sources */,
@@ -479,15 +503,18 @@
 			baseConfigurationReference = 219B8D4E10EB1CBDCC54AE6D /* Pods-testproject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = testproject/testproject.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: xuesong ma (6265778D25)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xuesong ma (6265778D25)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZMX4C3B995;
+				DEVELOPMENT_TEAM = 9CN4829674;
 				INFOPLIST_FILE = testproject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mr0x16.testproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "797e313f-4d27-47ee-93dc-e49d89fd79fe";
-				PROVISIONING_PROFILE_SPECIFIER = all_in_one;
+				PROVISIONING_PROFILE = "9b4c3645-c1b6-40b9-9d7e-ce30212a1199";
+				PROVISIONING_PROFILE_SPECIFIER = mr0x16_test;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -497,15 +524,18 @@
 			baseConfigurationReference = 2F135CBBC7502875FF262A16 /* Pods-testproject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = testproject/testproject.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: xuesong ma (6265778D25)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xuesong ma (6265778D25)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZMX4C3B995;
+				DEVELOPMENT_TEAM = 9CN4829674;
 				INFOPLIST_FILE = testproject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mr0x16.testproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "797e313f-4d27-47ee-93dc-e49d89fd79fe";
-				PROVISIONING_PROFILE_SPECIFIER = all_in_one;
+				PROVISIONING_PROFILE = "9b4c3645-c1b6-40b9-9d7e-ce30212a1199";
+				PROVISIONING_PROFILE_SPECIFIER = mr0x16_test;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

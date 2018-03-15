@@ -22,7 +22,8 @@
     if (self) {
         self.actionsArray = @[@"request",
                               @"qrcode",
-                              @"test3"];
+                              @"speech",
+                              @"test4"];
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     }
     return self;

@@ -28,7 +28,12 @@
     mainvc.rightViewEnabled = NO;
     mainvc.leftViewWidth = SCREEN_WIDTH*3/5;
     mainvc.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
-
+    
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
 //    mainvc.rightViewWidth = 100.0;
 //    mainvc.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
 
@@ -40,6 +45,9 @@
     self.window.rootViewController = mainvc;
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
+    
+    
+    
     return YES;
 }
 
@@ -55,6 +63,19 @@
     [_window.rootViewController presentViewController:alert animated:YES completion:^{
         NSLog(@"正在截屏");
     }];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    NSLog([[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding]);
+    NSString *deviceTokenStr = [[[[deviceToken description]
+                                  stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                 stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"%@", deviceTokenStr);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+   NSLog(@"远程通知注册失败：%@",error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

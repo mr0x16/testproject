@@ -235,6 +235,7 @@
         } else {
 //            [[NSNotificationCenter defaultCenter] ];
             self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
+//            self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://wap.95559.com.cn/mobs/main.html#financial/financial/productDetails?isWap=0$shareId=729769ce2ae6425fbb65349a919e9ae0$sharer=MDA4MzIwMTQ2MA..$channelId=wealth_management$pageCode=NWM0002$productId=2461180071$UUID=729769ce2ae6425fbb65349a919e9ae0$branchNo=branchNo"];
             [_qrcodeview setBackgroundColor:[UIColor clearColor]];
             [self.view addSubview:self.qrcodeview];
             [self.qrcodeview mas_makeConstraints:^(MASConstraintMaker *make) {
