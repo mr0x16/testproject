@@ -11,6 +11,6 @@
 #import "marco.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface speechViewController : UIViewController <UITextViewDelegate>
+@interface speechViewController : UIViewController <UITextViewDelegate, AVSpeechSynthesizerDelegate>
 
 @end

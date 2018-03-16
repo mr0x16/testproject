@@ -8,12 +8,13 @@
 
 #import "speechViewController.h"
 
-@interface speechViewController () {
-    AVSpeechSynthesizer *synthesizer;
-    AVSpeechSynthesisVoice *voice;
-}
+@interface speechViewController ()
+
 @property(nonatomic, strong) UITextView *textview;
 @property(nonatomic, strong) UIButton *btnspeech;
+@property(nonatomic, strong) AVSpeechSynthesisVoice *voice;
+@property(nonatomic, strong) AVSpeechSynthesizer *synthesizer;
+
 @end
 
 @implementation speechViewController
@@ -21,8 +22,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
-        synthesizer = [[AVSpeechSynthesizer alloc] init];
+        self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+        self.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
+        self.synthesizer.delegate = self;
     }
     return self;
 }
@@ -82,11 +84,17 @@
 
 -(void) speechtextcontent {
     NSLog(@"点击");
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:_textview.text];
-    utterance.voice = voice;
-    utterance.rate = 0.3;
-    [synthesizer speakUtterance:utterance];
-};
+//    __weak typeof(self) weakself = self;
+//    NSString *speechStr = self.textview.text;
+    
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"你好"];
+        utterance.voice = self.voice;
+        utterance.rate = 0.3;
+        [self.synthesizer speakUtterance:utterance];
+//    });
+}
 
 #pragma mark - textview delegate
 
