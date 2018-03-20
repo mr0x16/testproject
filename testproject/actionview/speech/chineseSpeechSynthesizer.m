@@ -10,6 +10,9 @@
 @interface chineseSpeechSynthesizer() {
     NSString *speechcontent;
     AVAudioEngine *audioengine;
+    MPVolumeView *volumeView;
+    UISlider* volumeViewSlider;
+    float systemVolume;
 }
 
 @end
@@ -43,7 +46,23 @@
             return;
         }
     }
+    volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(-100, -100, 40, 40)];
+    volumeViewSlider = nil;
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            volumeViewSlider = (UISlider*)view;
+            break;
+        }
+    }
+    [volumeViewSlider setHidden:YES];
+    // retrieve system volume
+    systemVolume = [[AVAudioSession sharedInstance] outputVolume];
+//    NSLog(@"%f",systemVolume);
+    // change system volume, the value is between 0.0f and 1.0f
+    [volumeViewSlider setValue:VOICE_VOLUME animated:NO];
     
+    // send UI control event to make the change effect right now.
+    [volumeViewSlider sendActionsForControlEvents:UIControlEventTouchUpInside];
 //    MPMusicPlayerController *mpc = [MPMusicPlayerController applicationMusicPlayer];//This property is deprecated -- use MPVolumeView for volume control instead.mpc.volume = 0;
     //end
     __weak typeof(self) weakself = self;
@@ -56,4 +75,8 @@
     });
 }
 
+-(void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
+//    NSLog(@"voice is finished");
+    [volumeViewSlider setValue:systemVolume animated:NO];
+}
 @end

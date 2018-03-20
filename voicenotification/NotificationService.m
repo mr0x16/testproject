@@ -24,6 +24,7 @@
     // Modify the notification content here...
 //    self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
     NSString *voiceStr = self.bestAttemptContent.body;
+    
     chineseSpeechSynthesizer *speecher = [[chineseSpeechSynthesizer alloc] initWithSpeechString:voiceStr];
     [speecher startvoice];
     self.contentHandler(self.bestAttemptContent);
