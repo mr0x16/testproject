@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#define SPEECH_SPEED 0.55
+#define SPEECH_SPEED 0.5
 #define LANGUAGE_TYPE @"zh-CN"
 @interface chineseSpeechSynthesizer : NSObject <AVSpeechSynthesizerDelegate>
 @property(nonatomic, strong) AVSpeechSynthesisVoice *voice;

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0F4FD390205A4E5D0025C464 /* speechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FD38F205A4E5D0025C464 /* speechViewController.m */; };
 		0F5E389B2060AD6000D27409 /* chineseSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */; };
+		0F5E389D2060D4C600D27409 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5E389C2060D4C600D27409 /* PushKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0F5E38A62060D7C400D27409 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E38A52060D7C400D27409 /* NotificationService.m */; };
+		0F5E38AB2060D7C400D27409 /* voicenotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0F5E38A22060D7C400D27409 /* voicenotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0F5E38AF2060DF2000D27409 /* chineseSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */; };
+		0F5E38B02060DF3700D27409 /* chineseSpeechSynthesizer.h in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E38992060AD6000D27409 /* chineseSpeechSynthesizer.h */; };
 		0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86ACFB204CF9AD003556F1 /* grayLayerView.m */; };
 		0F86AD02204E21B9003556F1 /* qrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86AD01204E21B9003556F1 /* qrCodeView.m */; };
 		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
@@ -32,12 +37,41 @@
 		E9F9F03A86EC101768041E77 /* libPods-testproject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AA90A9194BBF729E35A247 /* libPods-testproject.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0F5E38A82060D7C400D27409 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36B580C2044100D00E6FAE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F5E38A12060D7C400D27409;
+			remoteInfo = voicenotification;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0F5E38AA2060D7C400D27409 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0F5E38AB2060D7C400D27409 /* voicenotification.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0F4FD38D205A3A230025C464 /* testproject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testproject.entitlements; sourceTree = "<group>"; };
 		0F4FD38E205A4E5D0025C464 /* speechViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = speechViewController.h; sourceTree = "<group>"; };
 		0F4FD38F205A4E5D0025C464 /* speechViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = speechViewController.m; sourceTree = "<group>"; };
 		0F5E38992060AD6000D27409 /* chineseSpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chineseSpeechSynthesizer.h; sourceTree = "<group>"; };
 		0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chineseSpeechSynthesizer.m; sourceTree = "<group>"; };
+		0F5E389C2060D4C600D27409 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		0F5E38A22060D7C400D27409 /* voicenotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = voicenotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F5E38A42060D7C400D27409 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		0F5E38A52060D7C400D27409 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		0F5E38A72060D7C400D27409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F86ACFA204CF9AD003556F1 /* grayLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grayLayerView.h; sourceTree = "<group>"; };
 		0F86ACFB204CF9AD003556F1 /* grayLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grayLayerView.m; sourceTree = "<group>"; };
 		0F86AD00204E21B9003556F1 /* qrCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qrCodeView.h; sourceTree = "<group>"; };
@@ -77,10 +111,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0F5E389F2060D7C400D27409 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D36B58112044100D00E6FAE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5E389D2060D4C600D27409 /* PushKit.framework in Frameworks */,
 				E9F9F03A86EC101768041E77 /* libPods-testproject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +139,16 @@
 				0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */,
 			);
 			path = speech;
+			sourceTree = "<group>";
+		};
+		0F5E38A32060D7C400D27409 /* voicenotification */ = {
+			isa = PBXGroup;
+			children = (
+				0F5E38A42060D7C400D27409 /* NotificationService.h */,
+				0F5E38A52060D7C400D27409 /* NotificationService.m */,
+				0F5E38A72060D7C400D27409 /* Info.plist */,
+			);
+			path = voicenotification;
 			sourceTree = "<group>";
 		};
 		0FD2A93E20452B7000BD2302 /* actionview */ = {
@@ -136,6 +188,7 @@
 		AC5AFD1273A693534F453209 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F5E389C2060D4C600D27409 /* PushKit.framework */,
 				E4AA90A9194BBF729E35A247 /* libPods-testproject.a */,
 			);
 			name = Frameworks;
@@ -175,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				D36B58162044100D00E6FAE9 /* testproject */,
+				0F5E38A32060D7C400D27409 /* voicenotification */,
 				D36B58152044100D00E6FAE9 /* Products */,
 				BF560209B057C09B1331A731 /* Pods */,
 				AC5AFD1273A693534F453209 /* Frameworks */,
@@ -185,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				D36B58142044100D00E6FAE9 /* testproject.app */,
+				0F5E38A22060D7C400D27409 /* voicenotification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +289,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0F5E38A12060D7C400D27409 /* voicenotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F5E38AC2060D7C400D27409 /* Build configuration list for PBXNativeTarget "voicenotification" */;
+			buildPhases = (
+				0F5E389E2060D7C400D27409 /* Sources */,
+				0F5E389F2060D7C400D27409 /* Frameworks */,
+				0F5E38A02060D7C400D27409 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = voicenotification;
+			productName = voicenotification;
+			productReference = 0F5E38A22060D7C400D27409 /* voicenotification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D36B58132044100D00E6FAE9 /* testproject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D36B582A2044100D00E6FAE9 /* Build configuration list for PBXNativeTarget "testproject" */;
@@ -244,10 +316,12 @@
 				D36B58122044100D00E6FAE9 /* Resources */,
 				C0817E4002C0A3AC8EE8731D /* [CP] Embed Pods Frameworks */,
 				C03C0845729180365C7CA4F9 /* [CP] Copy Pods Resources */,
+				0F5E38AA2060D7C400D27409 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0F5E38A92060D7C400D27409 /* PBXTargetDependency */,
 			);
 			name = testproject;
 			productName = testproject;
@@ -263,6 +337,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = bestn1nja;
 				TargetAttributes = {
+					0F5E38A12060D7C400D27409 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					D36B58132044100D00E6FAE9 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
@@ -291,11 +369,19 @@
 			projectRoot = "";
 			targets = (
 				D36B58132044100D00E6FAE9 /* testproject */,
+				0F5E38A12060D7C400D27409 /* voicenotification */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0F5E38A02060D7C400D27409 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D36B58122044100D00E6FAE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,6 +452,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0F5E389E2060D7C400D27409 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F5E38B02060DF3700D27409 /* chineseSpeechSynthesizer.h in Sources */,
+				0F5E38AF2060DF2000D27409 /* chineseSpeechSynthesizer.m in Sources */,
+				0F5E38A62060D7C400D27409 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D36B58102044100D00E6FAE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +484,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0F5E38A92060D7C400D27409 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F5E38A12060D7C400D27409 /* voicenotification */;
+			targetProxy = 0F5E38A82060D7C400D27409 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D36B581D2044100D00E6FAE9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -400,6 +504,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0F5E38AD2060D7C400D27409 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: xuesong ma (6265778D25)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CN4829674;
+				INFOPLIST_FILE = voicenotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mr0x16.testproject.voicenotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0F5E38AE2060D7C400D27409 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: xuesong ma (6265778D25)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CN4829674;
+				INFOPLIST_FILE = voicenotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mr0x16.testproject.voicenotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D36B58282044100D00E6FAE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -515,7 +655,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9CN4829674;
 				INFOPLIST_FILE = testproject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mr0x16.testproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,7 +676,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9CN4829674;
 				INFOPLIST_FILE = testproject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mr0x16.testproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -549,6 +689,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0F5E38AC2060D7C400D27409 /* Build configuration list for PBXNativeTarget "voicenotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F5E38AD2060D7C400D27409 /* Debug */,
+				0F5E38AE2060D7C400D27409 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D36B580F2044100D00E6FAE9 /* Build configuration list for PBXProject "testproject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
