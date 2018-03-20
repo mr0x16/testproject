@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "masonry.h"
 #import "marco.h"
-#import <AVFoundation/AVFoundation.h>
-
-@interface speechViewController : UIViewController <UITextViewDelegate, AVSpeechSynthesizerDelegate>
+#import "chineseSpeechSynthesizer.h"
+@interface speechViewController : UIViewController <UITextViewDelegate>
 
 @end

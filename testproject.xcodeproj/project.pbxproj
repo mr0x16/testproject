@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F4FD390205A4E5D0025C464 /* speechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FD38F205A4E5D0025C464 /* speechViewController.m */; };
+		0F5E389B2060AD6000D27409 /* chineseSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */; };
 		0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86ACFB204CF9AD003556F1 /* grayLayerView.m */; };
 		0F86AD02204E21B9003556F1 /* qrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86AD01204E21B9003556F1 /* qrCodeView.m */; };
 		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
@@ -35,6 +36,8 @@
 		0F4FD38D205A3A230025C464 /* testproject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testproject.entitlements; sourceTree = "<group>"; };
 		0F4FD38E205A4E5D0025C464 /* speechViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = speechViewController.h; sourceTree = "<group>"; };
 		0F4FD38F205A4E5D0025C464 /* speechViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = speechViewController.m; sourceTree = "<group>"; };
+		0F5E38992060AD6000D27409 /* chineseSpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chineseSpeechSynthesizer.h; sourceTree = "<group>"; };
+		0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chineseSpeechSynthesizer.m; sourceTree = "<group>"; };
 		0F86ACFA204CF9AD003556F1 /* grayLayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grayLayerView.h; sourceTree = "<group>"; };
 		0F86ACFB204CF9AD003556F1 /* grayLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grayLayerView.m; sourceTree = "<group>"; };
 		0F86AD00204E21B9003556F1 /* qrCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qrCodeView.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 			children = (
 				0F4FD38E205A4E5D0025C464 /* speechViewController.h */,
 				0F4FD38F205A4E5D0025C464 /* speechViewController.m */,
+				0F5E38992060AD6000D27409 /* chineseSpeechSynthesizer.h */,
+				0F5E389A2060AD6000D27409 /* chineseSpeechSynthesizer.m */,
 			);
 			path = speech;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			files = (
 				0F4FD390205A4E5D0025C464 /* speechViewController.m in Sources */,
 				0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */,
+				0F5E389B2060AD6000D27409 /* chineseSpeechSynthesizer.m in Sources */,
 				D36B581C2044100D00E6FAE9 /* ViewController.m in Sources */,
 				0F86AD02204E21B9003556F1 /* qrCodeView.m in Sources */,
 				D3EAE8F720441DB60060015B /* rightViewController.m in Sources */,

@@ -12,22 +12,10 @@
 
 @property(nonatomic, strong) UITextView *textview;
 @property(nonatomic, strong) UIButton *btnspeech;
-@property(nonatomic, strong) AVSpeechSynthesisVoice *voice;
-@property(nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 
 @end
 
 @implementation speechViewController
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.synthesizer = [[AVSpeechSynthesizer alloc] init];
-        self.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
-        self.synthesizer.delegate = self;
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,16 +72,8 @@
 
 -(void) speechtextcontent {
     NSLog(@"点击");
-//    __weak typeof(self) weakself = self;
-//    NSString *speechStr = self.textview.text;
-    
-    
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"你好"];
-        utterance.voice = self.voice;
-        utterance.rate = 0.3;
-        [self.synthesizer speakUtterance:utterance];
-//    });
+    chineseSpeechSynthesizer *speech = [[chineseSpeechSynthesizer alloc] initWithSpeechString:_textview.text];
+    [speech startvoice];
 }
 
 #pragma mark - textview delegate
