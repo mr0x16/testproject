@@ -16,6 +16,8 @@
 		0F5E38B02060DF3700D27409 /* chineseSpeechSynthesizer.h in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E38992060AD6000D27409 /* chineseSpeechSynthesizer.h */; };
 		0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86ACFB204CF9AD003556F1 /* grayLayerView.m */; };
 		0F86AD02204E21B9003556F1 /* qrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86AD01204E21B9003556F1 /* qrCodeView.m */; };
+		0FD1528D2069538B003A1DF2 /* metalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD1528C2069538B003A1DF2 /* metalViewController.m */; };
+		0FD1528F20695ADE003A1DF2 /* pooh.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD1528E20695ADE003A1DF2 /* pooh.png */; };
 		0FD2A941204530EC00BD2302 /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A940204530EC00BD2302 /* leftViewController.m */; };
 		0FD2A9442046719000BD2302 /* requestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A9432046719000BD2302 /* requestViewController.m */; };
 		0FD2A94B2047F29500BD2302 /* qrcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2A94A2047F29500BD2302 /* qrcodeViewController.m */; };
@@ -76,6 +78,9 @@
 		0F86ACFB204CF9AD003556F1 /* grayLayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grayLayerView.m; sourceTree = "<group>"; };
 		0F86AD00204E21B9003556F1 /* qrCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qrCodeView.h; sourceTree = "<group>"; };
 		0F86AD01204E21B9003556F1 /* qrCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = qrCodeView.m; sourceTree = "<group>"; };
+		0FD1528B2069538B003A1DF2 /* metalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metalViewController.h; sourceTree = "<group>"; };
+		0FD1528C2069538B003A1DF2 /* metalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = metalViewController.m; sourceTree = "<group>"; };
+		0FD1528E20695ADE003A1DF2 /* pooh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pooh.png; sourceTree = "<group>"; };
 		0FD2A93F204530EC00BD2302 /* leftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
 		0FD2A940204530EC00BD2302 /* leftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		0FD2A9422046719000BD2302 /* requestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requestViewController.h; sourceTree = "<group>"; };
@@ -151,9 +156,19 @@
 			path = voicenotification;
 			sourceTree = "<group>";
 		};
+		0FD1528A2069536F003A1DF2 /* metal */ = {
+			isa = PBXGroup;
+			children = (
+				0FD1528B2069538B003A1DF2 /* metalViewController.h */,
+				0FD1528C2069538B003A1DF2 /* metalViewController.m */,
+			);
+			path = metal;
+			sourceTree = "<group>";
+		};
 		0FD2A93E20452B7000BD2302 /* actionview */ = {
 			isa = PBXGroup;
 			children = (
+				0FD1528A2069536F003A1DF2 /* metal */,
 				0F4FD391205A4E630025C464 /* speech */,
 				0FD2A9482047F27600BD2302 /* QRCode */,
 				0FD2A9472047EB5000BD2302 /* httprequest */,
@@ -214,6 +229,7 @@
 		D30794CD204C42D70017969E /* image */ = {
 			isa = PBXGroup;
 			children = (
+				0FD1528E20695ADE003A1DF2 /* pooh.png */,
 				D3400CA8204D6802004928D5 /* light_off.png */,
 				D3400CA9204D6802004928D5 /* light_on.png */,
 				D30794CF204C42F30017969E /* close.png */,
@@ -387,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30794D4204C42F30017969E /* photoalbum.png in Resources */,
+				0FD1528F20695ADE003A1DF2 /* pooh.png in Resources */,
 				D30794D2204C42F30017969E /* scan.png in Resources */,
 				D3400CAB204D6802004928D5 /* light_on.png in Resources */,
 				D3400CAA204D6802004928D5 /* light_off.png in Resources */,
@@ -478,6 +495,7 @@
 				D30794C920499A2A0017969E /* cameraPreviewView.m in Sources */,
 				0F86ACFC204CF9AD003556F1 /* grayLayerView.m in Sources */,
 				0FD2A94B2047F29500BD2302 /* qrcodeViewController.m in Sources */,
+				0FD1528D2069538B003A1DF2 /* metalViewController.m in Sources */,
 				D36B58192044100D00E6FAE9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,6 +672,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xuesong ma (6265778D25)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9CN4829674;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/testproject",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/LGSideMenuController\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+				);
 				INFOPLIST_FILE = testproject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -675,6 +703,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xuesong ma (6265778D25)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9CN4829674;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/testproject",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/LGSideMenuController\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+				);
 				INFOPLIST_FILE = testproject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

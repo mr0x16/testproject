@@ -223,6 +223,7 @@
 }
 
 - (void) changeMode{
+    
     self.isScan = !self.isScan;
     self.canDetect = self.isScan;
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -234,8 +235,8 @@
             [self.qrcodeview setHidden:NO];
         } else {
 //            [[NSNotificationCenter defaultCenter] ];
-            self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
-//            self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://wap.95559.com.cn/mobs/main.html#financial/financial/productDetails?isWap=0$shareId=729769ce2ae6425fbb65349a919e9ae0$sharer=MDA4MzIwMTQ2MA..$channelId=wealth_management$pageCode=NWM0002$productId=2461180071$UUID=729769ce2ae6425fbb65349a919e9ae0$branchNo=branchNo"];
+//            self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://t.me/Mr0x16"];
+            self.qrcodeview = [[qrCodeView alloc] initWithInfo:@"https://wap.95559.com.cn/mobs/main.html#financial/financial/productDetails?isWap=0$shareId=729769ce2ae6425fbb65349a919e9ae0$sharer=MDA4MzIwMTQ2MA..$channelId=wealth_management$pageCode=NWM0002$productId=2461180071$UUID=729769ce2ae6425fbb65349a919e9ae0$branchNo=branchNo"];
             [_qrcodeview setBackgroundColor:[UIColor clearColor]];
             [self.view addSubview:self.qrcodeview];
             [self.qrcodeview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -368,7 +369,12 @@
     AVMetadataObjectType typeobject = [[metadataObjects firstObject] type];
     AVMetadataMachineReadableCodeObject *resobject = [metadataObjects lastObject];
     
-    if (resobject == nil || !_canDetect) return;
+    if (resobject == nil || !_canDetect) {
+        if (resobject == nil) {
+            NSLog(@"res object is null");
+        }
+        return;
+    }
     // 只要扫描到结果就会调用
     if (_canDetect && typeobject == AVMetadataObjectTypeQRCode) {
         NSString *message = resobject.stringValue;
@@ -398,6 +404,7 @@
     
     //用探测器探测数据
     NSArray *feature = [detector featuresInImage:ciImage];
+    Identify_Res state;
     __block NSString *resultStr = @"";
     if ([feature count] > 0) {
         CIQRCodeFeature *result = feature[0];
@@ -406,9 +413,12 @@
         //         NSLog(@"%@",result.messageString);
         //    }
         resultStr = result.messageString;
+        state = SUCCESS;
     } else {
         resultStr = @"识别失败!";
+        state = UnKnow;
     }
+    NSLog(@"%zd", state);
     [picker dismissViewControllerAnimated:YES completion:^{
         UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"识别结果" message:resultStr preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

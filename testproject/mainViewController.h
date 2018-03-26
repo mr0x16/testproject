@@ -7,8 +7,7 @@
 //
 
 #import <LGSideMenuController/LGSideMenuController.h>
-#import "leftViewController.h"
-#import "rightViewController.h"
+
 @interface mainViewController : LGSideMenuController
 
 @end
